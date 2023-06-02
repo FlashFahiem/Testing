@@ -7,10 +7,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Day5_Exercise2 {
+public class Day5_Exercise4 {
 
-	public static void main(String[] args)throws InterruptedException{
-		WebDriverManager.chromedriver().setup();
+	public static void main(String[] args) throws InterruptedException {
+		
+WebDriverManager.chromedriver().setup();
 
 		
 
@@ -27,26 +28,19 @@ public class Day5_Exercise2 {
 		
 	    Thread.sleep(5000);
 	    
-	    String s1=driver.getCurrentUrl();
-	    System.out.println(s1);
-	    
-	    if(s1 == "https://j2store.net/free/")
-		{
-			System.out.println("Valid");
-		}
 	    
 	    JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("window.scrollBy(0,700)","");
 		
 		driver.findElement(By.xpath("//*[@id=\"Mod112\"]/div/div/ul/li[1]/h4/a")).click();
-		                      
-		String s2=driver.getCurrentUrl();
-	    System.out.println(s2);
-	    
-	    if(s2 == "https://j2store.net/free/index.php/shop?filter_catid=11")
-		{
-			System.out.println("Valid");
-		}
+		
+		driver.navigate().back();
+		
+		driver.navigate().forward();
+		
+		driver.navigate().refresh();
+		
+		driver.close();
 
 	}
 
